@@ -21,8 +21,8 @@ class Usuario:
         self.senha = senha 
 
 usuario1 = Usuario("Alex Soares", "So4resAlex", "umasenhafacil")
-usuario2 = Usuario("Ana  Julia", "Julis" "cataratas")
-usuario3 = Usuario("Jonas Pedro", "JP" "umaoutrasenhafacil")
+usuario2 = Usuario("Ana  Julia", "Julis", "cataratas")
+usuario3 = Usuario("Jonas Pedro", "JP", "umaoutrasenhafacil")
 
 usuarios = { usuario1.nickname: usuario1, 
              usuario2.nickname: usuario2,
