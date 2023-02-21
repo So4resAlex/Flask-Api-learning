@@ -11,22 +11,22 @@ jogo2 = Jogo('God of War', 'Hack n Slash', 'PS2')
 jogo3 = Jogo('Mortal Kombat', 'Luta', 'PS2')
 lista = [jogo1, jogo2, jogo3]
 
-app = Flask(__name__)
-app.secret_key = 'alura'
-
 class Usuario:
     def __init__(self, nome, nickname, senha):
-        self.nome = nome 
-        self.nickname  = nickname
-        self.senha = senha 
+        self.nome = nome
+        self.nickname = nickname
+        self.senha = senha
 
-usuario1 = Usuario("Alex Soares", "So4resAlex", "umasenhafacil")
-usuario2 = Usuario("Ana  Julia", "Julis", "cataratas")
-usuario3 = Usuario("Jonas Pedro", "JP", "umaoutrasenhafacil")
+usuario1 = Usuario("Alex Soares", "Soares", "umasenhafacil")
+usuario2 = Usuario("Ana Julia", "Julia", "outrasenhafacil")
+usuario3 = Usuario("Mais um cara", "Cake", "umasenhafacil2.0")
 
-usuarios = { usuario1.nickname: usuario1, 
-             usuario2.nickname: usuario2,
-             usuario3.nickname: usuario3 }
+usuarios = { usuario1.nickname : usuario1,
+             usuario2.nickname : usuario2,
+             usuario3.nickname : usuario3 }
+
+app = Flask(__name__)
+app.secret_key = 'alura'
 
 @app.route('/')
 def index():
@@ -35,7 +35,7 @@ def index():
 @app.route('/novo')
 def novo():
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
-        return redirect(url_for('login', proximapagina = url_for('novo')))
+        return redirect(url_for('login', proxima=url_for('novo')))
     return render_template('novo.html', titulo='Novo Jogo')
 
 @app.route('/criar', methods=['POST',])
@@ -49,16 +49,16 @@ def criar():
 
 @app.route('/login')
 def login():
-    proximapagina = request.args.get('proximapagina')
-    return render_template('login.html', proximapagina = proximapagina)
+    proxima = request.args.get('proxima')
+    return render_template('login.html', proxima=proxima)
 
 @app.route('/autenticar', methods=['POST',])
 def autenticar():
-    if request.form ['usuario'] in usuarios:
+    if request.form['usuario'] in usuarios:
         usuario = usuarios[request.form['usuario']]
         if request.form['senha'] == usuario.senha:
             session['usuario_logado'] = usuario.nickname
-            flash(usuario.nickname + ' logado com sucessso! ')
+            flash(usuario.nickname + ' logado com sucesso!')
             proxima_pagina = request.form['proxima']
             return redirect(proxima_pagina)
     else:
@@ -69,6 +69,6 @@ def autenticar():
 def logout():
     session['usuario_logado'] = None
     flash('Logout efetuado com sucesso!')
-    return redirect(url_for('login'))
+    return redirect(url_for('index'))
 
 app.run(debug=True)
