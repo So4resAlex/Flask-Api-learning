@@ -14,10 +14,32 @@ Rota   | Método
 ``localhost:5000/criar`` | ``POST``
 ``localhost:5000/logout``| ``GET``
 
-#### Buildando a API:
+## Requisitos 
+- [Python3](https://www.python.org/downloads/)
+- [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+- [Curl](https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntu-linux/)
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-Pré requisitos:
-- Python 3
-- Flask
+## Executando com Docker
+
+Para executar siga os passos  abaixo :
+
+1. Instale o ``curl`` caso ainda não tenha  
+
+2. [Instale o docker](https://www.youtube.com/watch?v=4XwzR9vXT5s)
+```
+curl -fsSL https://get.docker.com | bash 
+```
+
+3. Clone o projeto
+```
+git clone https://github.com/So4resAlex/Flask-Api-learning.git && cd Flask-Api-learning
+```
+
+4. Uma vez instaladas as dependencias
+```
+docker-compose up -d 
+```
 
 
