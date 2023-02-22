@@ -7,8 +7,8 @@ A aplicação roda na porta ``5000`` e atualmente conta com as seguintes rotas:
 
 Rota   | Método
 --------- | ------
-``localhost:500/`` | ``GET``
-``localhost:500/login`` | ``GET``
+``localhost:5000/`` | ``GET``
+``localhost:5000/login`` | ``GET``
 ``localhost:5000/autenticar`` | ``POST``
 ``localhost:5000/novo`` | ``GET``
 ``localhost:5000/criar`` | ``POST``
