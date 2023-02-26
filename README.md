@@ -14,6 +14,10 @@ Rota   | Método
 ``localhost:5000/criar`` | ``POST``
 ``localhost:5000/logout``| ``GET``
 
+Credencias para login:
+
+``Nome de usuário: Soares Senha: umasenhafacil``
+
 ## Requisitos 
 - [Python3](https://www.python.org/downloads/)
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/)
